@@ -1,0 +1,26 @@
+import { useEffect } from 'react'
+import { Outlet, useNavigate } from 'react-router-dom'
+import { Toaster } from 'sonner'
+import { useAuthStore } from './context/authStore'
+
+export default function Layout() {
+    const navigate = useNavigate()
+    const user = useAuthStore((state) => state.user)
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login', { replace: true })
+        }
+    }, [user, navigate])
+
+    if (!user) {
+        return null
+    }
+
+    return (
+        <>
+            <Toaster richColors position="top-center" />
+            <Outlet />
+        </>
+    )
+}
