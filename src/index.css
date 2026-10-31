@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+    --color-con-verde: #10b981;
+    --color-con-verde-escuro: #059669;
+    --color-con-verde-profundo: #047857;
+    --color-con-fundo: #f0fdf4;
+}
+
+body {
+    margin: 0;
+}
