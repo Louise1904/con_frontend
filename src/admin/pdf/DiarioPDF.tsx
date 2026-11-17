@@ -28,8 +28,8 @@ export type DadosDiario = {
     }
 }
 
-// Nome da escola que aparece no cabeçalho (troque pelo nome real da EMEI)
-const NOME_ESCOLA = 'EMEI - ESCOLA MUNICIPAL DE EDUCAÇÃO INFANTIL'
+
+const NOME_ESCOLA = 'ESCOLA MUNICIPAL DE EDUCAÇÃO INFANTIL JOÃO GUIMARÃES ROSA'
 
 // Símbolos usados nas células de cada dia
 const SIMBOLO_PRESENCA = '•'

@@ -7,6 +7,7 @@ import {
     IconeDisciplinas,
     IconeExportar,
     IconeFuncionarios,
+    IconeHistorico,
     IconeSalas,
     IconeTurmas,
 } from './icones'
@@ -20,6 +21,7 @@ const SECOES_MENU: { titulo: string; itens: ItemMenu[] }[] = [
         itens: [
             { rota: 'chamada', label: 'Chamada', icone: <IconeChamada /> },
             { rota: 'exportar', label: 'Exportar', icone: <IconeExportar /> },
+            { rota: 'historico', label: 'Histórico', icone: <IconeHistorico /> },
         ],
     },
     {
@@ -158,9 +160,9 @@ export default function AdminLayout() {
                     </nav>
 
                     {/* Rodapé da barra (só no computador) */}
-                    <div className="hidden border-t border-emerald-100 px-6 py-4 text-xs text-emerald-700/70 md:block dark:border-gray-800 dark:text-gray-500">
+                    {/* <div className="hidden border-t border-emerald-100 px-6 py-4 text-xs text-emerald-700/70 md:block dark:border-gray-800 dark:text-gray-500">
                         CON · Controle Acadêmico
-                    </div>
+                    </div> */}
                 </aside>
 
                 {/* ---------- Conteúdo da página ---------- */}

@@ -97,3 +97,13 @@ export function IconeExportar({ className }: PropsIcone) {
         </Icone>
     )
 }
+
+export function IconeHistorico({ className }: PropsIcone) {
+    return (
+        <Icone className={className}>
+            <path d="M3 12a9 9 0 1 0 2.64-6.36" />
+            <polyline points="3 4 3 9 8 9" />
+            <polyline points="12 7 12 12 15 15" />
+        </Icone>
+    )
+}
