@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { apiFetch, lerErro } from '../api/api'
 
-type Turma = { id: number; nome: string; turno: string }
-type Disciplina = { id: number; nome: string; professorNome: string | null }
+type Vinculo = { id: number; disciplinaId: number; funcionario: { id: number; nome: string } }
+type Turma = { id: number; nome: string; turno: string; professores: Vinculo[] }
+type Disciplina = { id: number; nome: string }
 type Professor = { id: number; nome: string; cargo: string }
 
 // Aluno como vem do GET /api/chamadas (presente = null quando ainda não marcado)
@@ -78,6 +79,15 @@ export default function AdminChamada() {
         carregarListas()
     }, [])
 
+    // Sempre que turma ou disciplina mudam, pré-seleciona o professor já vinculado
+    // a essa disciplina nessa turma (se houver um vínculo registrado)
+    useEffect(() => {
+        if (!turmaId || !disciplinaId) return
+        const turma = turmas.find((t) => String(t.id) === turmaId)
+        const vinculo = turma?.professores.find((p) => String(p.disciplinaId) === disciplinaId)
+        if (vinculo) setProfessorId(String(vinculo.funcionario.id))
+    }, [turmaId, disciplinaId, turmas])
+
     // Sempre que turma, disciplina ou data mudam, busca a chamada daquele dia
     useEffect(() => {
         if (!turmaId || !disciplinaId || !data) {
@@ -107,14 +117,6 @@ export default function AdminChamada() {
         }
         carregarChamada()
     }, [turmaId, disciplinaId, data])
-
-    // Ao escolher a disciplina, pré-seleciona o professor dela (se estiver cadastrado)
-    function escolherDisciplina(id: string) {
-        setDisciplinaId(id)
-        const disciplina = disciplinas.find((d) => String(d.id) === id)
-        const professor = professores.find((p) => p.nome === disciplina?.professorNome)
-        if (professor) setProfessorId(String(professor.id))
-    }
 
     function marcar(alunoId: number, presente: boolean) {
         setAlunos((atual) => atual.map((a) => (a.id === alunoId ? { ...a, presente } : a)))
@@ -186,7 +188,7 @@ export default function AdminChamada() {
 
                 <div>
                     <label className={CLASSE_LABEL}>Disciplina</label>
-                    <select value={disciplinaId} onChange={(e) => escolherDisciplina(e.target.value)} className={CLASSE_SELECT}>
+                    <select value={disciplinaId} onChange={(e) => setDisciplinaId(e.target.value)} className={CLASSE_SELECT}>
                         <option value=''>Selecione</option>
                         {disciplinas.map((d) => (
                             <option key={d.id} value={d.id}>

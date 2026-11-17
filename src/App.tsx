@@ -11,9 +11,12 @@ import AdminDisciplinas from './admin/AdminDisciplinas.tsx'
 import AdminSalas from './admin/AdminSalas.tsx'
 import AdminChamada from './admin/AdminChamada.tsx'
 import AdminExportar from './admin/AdminExportar.tsx'
+import AdminHistorico from './admin/AdminHistorico.tsx'
 import ProfessorLayout from './professor/ProfessorLayout.tsx'
-import ProfessorDashboard from './professor/ProfessorDashboard.tsx'
 import MinhasTurmas from './professor/MinhasTurmas.tsx'
+import ProfessorChamada from './professor/ProfessorChamada.tsx'
+import ProfessorHistorico from './professor/ProfessorHistorico.tsx'
+import ProfessorExportar from './professor/ProfessorExportar.tsx'
 import { useAuthStore } from './context/authStore'
 
 // Decide para onde mandar quem acessa "/" usando o tipo do usuário logado
@@ -22,7 +25,7 @@ function RedirecionaInicio() {
 
     return (
         <Navigate
-            to={user?.tipo === 'ADM' ? '/admin/inicio' : '/professor/dashboard'}
+            to={user?.tipo === 'ADM' ? '/admin/inicio' : '/professor/chamada'}
             replace
         />
     )
@@ -57,6 +60,7 @@ const rotas = createBrowserRouter([
                     { path: 'salas', element: <AdminSalas /> },
                     { path: 'disciplinas', element: <AdminDisciplinas /> },
                     { path: 'exportar', element: <AdminExportar /> },
+                    { path: 'historico', element: <AdminHistorico /> },
                 ],
             },
             {
@@ -65,10 +69,12 @@ const rotas = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <Navigate to='dashboard' replace />,
+                        element: <Navigate to='chamada' replace />,
                     },
-                    { path: 'dashboard', element: <ProfessorDashboard /> },
                     { path: 'turmas', element: <MinhasTurmas /> },
+                    { path: 'chamada', element: <ProfessorChamada /> },
+                    { path: 'historico', element: <ProfessorHistorico /> },
+                    { path: 'exportar', element: <ProfessorExportar /> },
                 ],
             },
         ],

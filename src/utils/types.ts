@@ -7,7 +7,12 @@ export interface User {
 }
 
 export interface TurmaProfessor {
+    id: number
+    turmaId: number
     funcionarioId: number
+    disciplinaId: number
+    funcionario: { id: number; nome: string }
+    disciplina: { id: number; nome: string }
 }
 
 export interface Turma {

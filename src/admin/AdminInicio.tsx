@@ -7,6 +7,7 @@ import {
     IconeDisciplinas,
     IconeExportar,
     IconeFuncionarios,
+    IconeHistorico,
     IconeSalas,
     IconeTurmas,
 } from './icones'
@@ -18,6 +19,7 @@ const TAMANHO_ICONE = 'h-7 w-7'
 const CARDS: Card[] = [
     { rota: '/admin/chamada', titulo: 'Chamada', descricao: 'Realize e registre a chamada', icone: <IconeChamada className={TAMANHO_ICONE} /> },
     { rota: '/admin/exportar', titulo: 'Exportar', descricao: 'Gere o diário de classe em PDF', icone: <IconeExportar className={TAMANHO_ICONE} /> },
+    { rota: '/admin/historico', titulo: 'Histórico', descricao: 'Veja a frequência de cada turma', icone: <IconeHistorico className={TAMANHO_ICONE} /> },
     { rota: '/admin/alunos', titulo: 'Alunos', descricao: 'Gerenciar alunos cadastrados', icone: <IconeAlunos className={TAMANHO_ICONE} /> },
     { rota: '/admin/turmas', titulo: 'Turmas', descricao: 'Gerenciar turmas cadastradas', icone: <IconeTurmas className={TAMANHO_ICONE} /> },
     { rota: '/admin/salas', titulo: 'Salas', descricao: 'Gerenciar salas da escola', icone: <IconeSalas className={TAMANHO_ICONE} /> },

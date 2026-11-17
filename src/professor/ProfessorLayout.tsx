@@ -3,8 +3,10 @@ import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-do
 import { useAuthStore } from '../context/authStore'
 
 const ITENS_MENU = [
-    { rota: 'dashboard', label: 'Dashboard' },
     { rota: 'turmas', label: 'Minhas Turmas' },
+    { rota: 'chamada', label: 'Chamada' },
+    { rota: 'historico', label: 'Histórico' },
+    { rota: 'exportar', label: 'Exportar' },
 ]
 
 export default function ProfessorLayout() {
@@ -56,7 +58,7 @@ export default function ProfessorLayout() {
         <div className="min-h-screen bg-con-fundo">
             <header className="bg-emerald-800 dark:bg-emerald-950 shadow-md sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                    <Link to="/professor/dashboard" className="flex items-center gap-2">
+                    <Link to="/professor/chamada" className="flex items-center gap-2">
                         <span className="text-xl font-bold tracking-tight text-white">
                             CON
                         </span>
