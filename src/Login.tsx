@@ -43,7 +43,7 @@ export default function Login() {
             if (corpo.user.tipo === 'ADM') {
                 navigate('/admin/inicio')
             } else {
-                navigate('/professor/dashboard')
+                navigate('/professor/chamada')
             }
         } catch {
             toast.error('Erro de conexão com o servidor')
