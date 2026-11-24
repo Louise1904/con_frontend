@@ -114,15 +114,6 @@ export default function Login() {
                         {isSubmitting ? 'Entrando...' : 'Entrar'}
                     </button>
 
-                    <div className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
-                        {/* <p>Usuários de teste:</p> */}
-                        {/* <p className="text-xs">
-                            direcao@con.local / Admin@123 (Diretor)
-                        </p>
-                        {/* <p className="text-xs">
-                            ana.souza@con.local / Professor@123 (Professor)
-                        </p> */} */}
-                    </div>
                 </form>
             </div>
         </div>

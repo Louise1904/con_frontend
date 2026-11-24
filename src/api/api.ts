@@ -1,10 +1,9 @@
-// Endereço do back. Se a porta mudar, troca só aqui.
-export const API_URL = 'http://localhost:3001'
+const apiUrl = import.meta.env.VITE_API_URL?.trim()
 
 // Faz requisições para o back já com o endereço e o cabeçalho JSON.
 // Uso: apiFetch('/api/turmas')  ou  apiFetch('/api/login', { method: 'POST', body: ... })
 export function apiFetch(caminho: string, opcoes: RequestInit = {}) {
-  return fetch(`${API_URL}${caminho}`, {
+  return fetch(`${apiUrl}${caminho}`, {
     ...opcoes,
     headers: {
       'Content-Type': 'application/json',

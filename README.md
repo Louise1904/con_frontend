@@ -41,7 +41,11 @@ npm install
 npm run dev
 ```
 
-> Certifique-se de que a API do backend está rodando (padrão: `http://localhost:3001`).
+Antes de iniciar, crie um arquivo `.env` na raiz do projeto com o endereço da API:
+
+```env
+VITE_API_URL=http://localhost:3001
+```
 
 ---
 
